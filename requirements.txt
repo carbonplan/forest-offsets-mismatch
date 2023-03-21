@@ -1,0 +1,3 @@
+geopandas @ file:///home/conda/feedstock_root/build_artifacts/geopandas_1623249625470/work
+intake @ file:///home/conda/feedstock_root/build_artifacts/intake_1678618324189/work
+intake-geopandas==0.4.0
