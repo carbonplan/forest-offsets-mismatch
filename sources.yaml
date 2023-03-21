@@ -1,0 +1,48 @@
+sources:
+  current_vcm:
+    driver: intake_geopandas.geopandas.GeoPandasFileSource
+    args:
+      urlpath: '{{ CATALOG_DIR }}/data/vcm/SierraNevadaVCM_2015-2020.gpkg'
+    metadata:
+      title: Vegetation climate mismatch under current climate conditions
+      summary: >-
+        Current estimate of vegetation climate mismatch for conifer forests in the
+        Sierra Nevada, under ssp2-4.5 forcing.
+      description: >
+        Hill et al., 2023 (https://doi.org/10.1093/pnasnexus/pgad004) calculated
+        the mismatch between future climate conditions and the historic climate
+        limits of conifer species across the Sierra Nevada mountains.
+      license: CC-BY-SA
+      providers:
+        - name: Avery P. Hill
+          url: 'https://github.com/avephill/sierra-nevada-VCM'
+  future_vcm:
+    driver: intake_geopandas.geopandas.GeoPandasFileSource
+    args:
+      urlpath: '{{ CATALOG_DIR }}/data/vcm/SierraNevadaVCM_2081-2100_ssp245.gpkg'
+    metadata:
+      title: Vegetation climate mismatch under SSP2-4.5
+      summary: |
+        Future projection of vegetation climate mismatch for conifer forests in
+        the Sierra Nevada, under ssp2-4.5 forcing.
+      description: |
+        Hill et al., 2023 (https://doi.org/10.1093/pnasnexus/pgad004) calculated
+        the mismatch between future climate conditions and the historic climate
+        limits of conifer species across the Sierra Nevada mountains.
+      license: CC-BY-SA
+      providers:
+        - name: Avery P. Hill
+          url: 'https://github.com/avephill/sierra-nevada-VCM'
+  boundary_data:
+    parameters:
+      opr_id:
+        description: offset project registry id
+        type: str
+    driver: intake_geopandas.geopandas.GeoPandasFileSource
+    args:
+      urlpath: '{{ CATALOG_DIR}}/data/projects/{{ opr_id }}.zip'
+    metadata:
+      title: Project boundrary data
+      providers:
+        - name: Climate Action Reserve
+          url: 'https://thereserve2.apx.com/'
